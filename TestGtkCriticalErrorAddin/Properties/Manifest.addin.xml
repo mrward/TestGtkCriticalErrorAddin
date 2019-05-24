@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionModel>
+	<Runtime>
+		<Import assembly="TestGtkCriticalErrorAddin.dll" />
+	</Runtime>
+
+	<Extension path="/MonoDevelop/Ide/Commands">
+		<Category _name="Test" id="Test">
+			<Command
+				id="TestGtkCriticalErrorAddin.CreateGtkError"
+				_description="Generates a gtk-critical error"
+				_label="Generate gtk-critical error"
+				defaultHandler="TestGtkCriticalErrorAddin.CreateGtkErrorHandler" />
+		</Category>
+	</Extension>
+
+	<Extension path="/MonoDevelop/Ide/MainMenu/Tools">
+		<SeparatorItem id = "CustomToolsSection" _label = "Custom"/>
+		<CommandItem id = "MonoDevelop.Ide.Commands.ToolCommands.ToolList" />
+		<CommandItem id = "MonoDevelop.Ide.Commands.ToolCommands.EditCustomTools" />
+		<SeparatorItem id = "OptionsSection" />
+
+		<SeparatorItem
+			id="TestGtkCriticalErrorAddinSectipn"
+			insertafter="MonoDevelop.Ide.Commands.ToolCommands.EditCustomTools"
+			insertbefore="OptionsSection"
+			_label="GLib Logging" />
+		<CommandItem
+			id="TestGtkCriticalErrorAddin.CreateGtkError"
+			insertafter="TestGtkCriticalErrorAddinSectipn"
+			insertbefore="OptionsSection" />
+	</Extension>
+</ExtensionModel>
